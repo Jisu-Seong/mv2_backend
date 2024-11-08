@@ -1,4 +1,4 @@
-package org.js.vocaapi.dto;
+package org.js.vocaapi.dto.member;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
