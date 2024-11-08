@@ -42,10 +42,6 @@ public class Sentence {
         this.orderNo = no;
     }
 
-    public void changeUpdateAt() {
-        this.updateTimeStamp = LocalDateTime.now();
-    }
-
     public void changeIsModified(boolean isModified) {
         this.isModified = isModified;
     }
@@ -55,6 +51,5 @@ public class Sentence {
         this.sentenceText = sentenceText;
         this.orderNo = orderNo;
         this.voca = voca;
-        this.createTimeStamp = LocalDateTime.now();
     }
 }

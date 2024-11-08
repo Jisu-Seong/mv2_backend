@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -17,10 +18,12 @@ public class Meaning {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long nid;
+    private Long mid;
 
+    @NotNull
     private String meaningText;
 
+    @NotNull
     private String className;
 
     private Long orderNo;
@@ -49,10 +52,6 @@ public class Meaning {
         this.orderNo = no;
     }
 
-    public void changeUpdateAt() {
-        this.updateTimeStamp = LocalDateTime.now();
-    }
-
     public void changeIsModified(boolean isModified) {
         this.isModified = isModified;
     }
@@ -62,6 +61,5 @@ public class Meaning {
         this.meaningText = meaningText;
         this.className = className;
         this.voca = voca;
-        this.createTimeStamp = LocalDateTime.now();
     }
 }

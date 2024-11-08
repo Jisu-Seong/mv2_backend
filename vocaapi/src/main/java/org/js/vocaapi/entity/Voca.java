@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -21,6 +22,7 @@ public class Voca {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vid;
 
+    @NotNull
     private String vocaname;
 
     private boolean isMarked;
@@ -39,10 +41,6 @@ public class Voca {
 
     public void changeMark(boolean isMarked) {
         this.isMarked = isMarked;
-    }
-
-    public void changeUpdateAt() {
-        this.updateTimeStamp = LocalDateTime.now();
     }
 
     public void changeIsModified(boolean isModified) {
@@ -71,7 +69,6 @@ public class Voca {
         this.member = member;
         this.folder = folder;
         this.vocaname = vocaname;
-        this.createTimeStamp = LocalDateTime.now();
         this.meanings = meanings;
         this.sentences = sentences;
     }

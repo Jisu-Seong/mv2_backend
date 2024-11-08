@@ -5,6 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.js.vocaapi.dto.member.JoinRequestDTO;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -22,8 +23,10 @@ public class Member {
     @Id
     private String email;
     
+    @NotNull
     private String password;
     
+    @NotNull
     private String nickname;
     
     private boolean social;
@@ -46,7 +49,6 @@ public class Member {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
-        this.joinTimeStamp = LocalDateTime.now();
         this.memberRoleList = new ArrayList<>();
     }
 

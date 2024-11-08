@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -20,6 +21,7 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tid;
 
+    @NotNull
     private String tagname;
 
     @CreationTimestamp
@@ -32,10 +34,6 @@ public class Tag {
 
     public void changeTagName(String tagname) {
         this.tagname = tagname;
-    }
-
-    public void changeUpdateAt() {
-        this.updateTimeStamp = LocalDateTime.now();
     }
 
     public void changeIsModified(boolean isModified) {
@@ -53,6 +51,5 @@ public class Tag {
     public Tag(String tagname, Member member) {
         this.member = member;
         this.tagname = tagname;
-        this.createTimeStamp = LocalDateTime.now();
     }
 }

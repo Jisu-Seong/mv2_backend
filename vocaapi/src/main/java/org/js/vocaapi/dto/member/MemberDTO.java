@@ -19,7 +19,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MemberDTO extends User {
-    @NotBlank
+
     @Email
     private String email;
 

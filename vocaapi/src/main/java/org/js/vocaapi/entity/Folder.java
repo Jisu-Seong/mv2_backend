@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -21,6 +22,7 @@ public class Folder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long fid;
 
+    @NotNull
     private String foldername;
 
     @CreationTimestamp
@@ -42,10 +44,6 @@ public class Folder {
         this.foldername = foldername;
     }
 
-    public void changeUpdateAt() {
-        this.updateTimeStamp = LocalDateTime.now();
-    }
-
     public void changeIsModified(boolean isModified) {
         this.isModified = isModified;
     }
@@ -54,7 +52,6 @@ public class Folder {
     public Folder(String foldername, Member member) {
         this.member = member;
         this.foldername = foldername;
-        this.createTimeStamp = LocalDateTime.now();
     }
 
 }
