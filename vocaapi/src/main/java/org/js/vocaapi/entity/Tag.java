@@ -1,6 +1,7 @@
 package org.js.vocaapi.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -41,9 +42,8 @@ public class Tag {
         this.isModified = isModified;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "rid")
-    private VocaTagRelation vocaTagRelation;
+    @OneToMany(mappedBy = "tag", cascade = CascadeType.REMOVE)
+    private List<VocaTagRelation> vocaTagRelations;
 
     @ManyToOne
     @JoinColumn(name = "email")

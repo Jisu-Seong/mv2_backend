@@ -57,13 +57,8 @@ public class Voca {
     @JoinColumn(name = "fid")
     private Folder folder;
 
-    // @ManyToMany
-    // @JoinTable(name = "relation", joinColumns = @JoinColumn(name = "vid"), inverseJoinColumns = @JoinColumn(name = "tid"))
-    // private List<Tag> tags = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "rid")
-    private VocaTagRelation vocaTagRelation;
+    @OneToMany(mappedBy = "voca", cascade = CascadeType.REMOVE)
+    private List<VocaTagRelation> vocaTagRelations;
 
     @OneToMany(mappedBy = "voca", cascade = CascadeType.REMOVE)
     private List<Meaning> meanings = new ArrayList<>();

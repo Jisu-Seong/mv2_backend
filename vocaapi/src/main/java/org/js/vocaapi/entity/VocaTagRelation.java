@@ -17,10 +17,12 @@ public class VocaTagRelation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rid;
 
-    @OneToMany(mappedBy = "vocaTagRelation")
-    private List<Voca> vocas = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "vid")
+    private Voca voca;
 
-    @OneToMany(mappedBy = "vocaTagRelation")
-    private List<Tag> tags = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "tid")
+    private Tag tag;
 
 }
