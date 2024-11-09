@@ -15,7 +15,7 @@ import lombok.*;
 @Getter
 @ToString
 public class Meaning {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mid;
@@ -36,6 +36,7 @@ public class Meaning {
 
     private boolean isModified;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "vid")
     private Voca voca;

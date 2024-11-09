@@ -17,7 +17,7 @@ import lombok.*;
 @Getter
 @ToString
 public class Voca {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vid;
@@ -47,10 +47,12 @@ public class Voca {
         this.isModified = isModified;
     }
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "email")
     private Member member;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "fid")
     private Folder folder;
@@ -60,12 +62,13 @@ public class Voca {
 
     @OneToMany(mappedBy = "voca", cascade = CascadeType.REMOVE)
     private List<Meaning> meanings = new ArrayList<>();
-    
+
     @OneToMany(mappedBy = "voca", cascade = CascadeType.REMOVE)
     private List<Sentence> sentences = new ArrayList<>();
 
     @Builder
-    public Voca(String vocaname, boolean isMarked, Member member, Folder folder, List<Meaning> meanings, List<Sentence> sentences) {
+    public Voca(String vocaname, boolean isMarked, Member member, Folder folder, List<Meaning> meanings,
+            List<Sentence> sentences) {
         this.member = member;
         this.folder = folder;
         this.vocaname = vocaname;

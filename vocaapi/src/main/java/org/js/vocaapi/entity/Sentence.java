@@ -1,10 +1,12 @@
 package org.js.vocaapi.entity;
+
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -13,7 +15,7 @@ import lombok.*;
 @Getter
 @ToString
 public class Sentence {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sid;
@@ -30,6 +32,7 @@ public class Sentence {
 
     private boolean isModified;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "vid")
     private Voca voca;

@@ -1,6 +1,5 @@
 package org.js.vocaapi.entity;
 
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,7 +16,7 @@ import lombok.*;
 @Getter
 @ToString
 public class Folder {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long fid;
@@ -33,10 +32,11 @@ public class Folder {
 
     private boolean isModified;
 
+    @NotNull
     @ManyToOne
-    @JoinColumn(name = "email") 
-        private Member member;
-    
+    @JoinColumn(name = "email")
+    private Member member;
+
     @OneToMany(mappedBy = "folder", cascade = CascadeType.REMOVE)
     private List<Voca> vocas;
 
